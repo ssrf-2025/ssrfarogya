@@ -45,7 +45,7 @@
     .site-header { position: sticky; z-index: 20; top: 0; border-bottom: 1px solid rgba(41,37,33,.1); background: rgba(255,254,250,.97); backdrop-filter: blur(14px); }
     .header-inner { display: flex; min-height: 78px; align-items: center; justify-content: space-between; gap: 24px; }
     .brand { display: flex; min-width: 230px; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
-    .brand-mark { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--gold); color: var(--maroon); font-family: var(--serif); font-size: 18px; }
+    .brand-mark { display: grid; width: 44px; height: 44px; flex: 0 0 44px; place-items: center; border: 1px solid var(--gold); border-radius: 50%; color: var(--maroon); font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
     .brand-copy { display: grid; line-height: 1.25; }
     .brand-name { font-family: var(--serif); font-size: 14px; font-weight: 700; }
     .brand-sub { margin-top: 3px; color: var(--muted); font-size: 10px; letter-spacing: .035em; }
@@ -219,7 +219,7 @@
       html { scroll-padding-top: 70px; }
       .wrap { width: min(100% - 36px, var(--content)); }
       .header-inner { min-height: 68px; }
-      .brand-mark { width: 36px; height: 36px; }
+      .brand-mark { width: 38px; height: 38px; flex-basis: 38px; font-size: 10px; }
       .brand-name { font-size: 12px; }
       .brand-sub { font-size: 9px; }
       .menu-toggle { display: grid; place-items: center; }
@@ -294,7 +294,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#home" aria-label="SSRF home">
-        <span class="brand-mark" aria-hidden="true">ஸ்ரீ</span>
+        <span class="brand-mark" aria-hidden="true">SSRF</span>
         <span class="brand-copy">
           <span class="brand-name">Sivaraman Siddha Research Foundation</span>
           <span class="brand-sub">Chennai, Tamil Nadu · Public Charitable Trust · Est. 2022</span>
