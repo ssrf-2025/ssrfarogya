@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7a1c1c">
+  <meta name="description" content="Sivaraman Siddha Research Foundation advances Siddha medicine through scientific research, integrative healthcare and community health initiatives.">
+  <title>SSRF | Siddha Research & Public Health</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --maroon: #7a1c1c;
+      --maroon-deep: #511919;
+      --gold: #bd9a57;
+      --gold-light: #e1c889;
+      --ink: #292521;
+      --muted: #706b64;
+      --paper: #f6f3ec;
+      --white: #fffefa;
+      --sage: #526657;
+      --line: #ded8cd;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Baskerville, Georgia, serif;
+      --sans: "Gill Sans", "Trebuchet MS", sans-serif;
+      --content: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(var(--content), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { margin: 0 0 14px; color: var(--maroon); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .section-title { max-width: 720px; margin: 0; font-family: var(--serif); font-size: clamp(34px, 4vw, 52px); font-weight: 500; line-height: 1.08; }
+    .section-intro { max-width: 690px; margin: 18px 0 0; color: var(--muted); font-size: 17px; }
+    .section-head { margin-bottom: 42px; }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 20px; border: 1px solid var(--maroon); background: var(--maroon); color: white; font-size: 13px; font-weight: 700; letter-spacing: .015em; text-decoration: none; transition: background .2s, color .2s, border-color .2s; }
+    .button:hover { border-color: var(--maroon-deep); background: var(--maroon-deep); }
+    .button--light { border-color: rgba(255,255,255,.65); background: transparent; color: white; }
+    .button--light:hover { border-color: white; background: white; color: var(--maroon); }
+    .button--outline { background: transparent; color: var(--maroon); }
+    .button--outline:hover { background: var(--maroon); color: white; }
+
+    .site-header { position: sticky; z-index: 20; top: 0; border-bottom: 1px solid rgba(41,37,33,.1); background: rgba(255,254,250,.97); backdrop-filter: blur(14px); }
+    .header-inner { display: flex; min-height: 78px; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; min-width: 230px; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+    .brand-mark { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--gold); color: var(--maroon); font-family: var(--serif); font-size: 18px; }
+    .brand-copy { display: grid; line-height: 1.25; }
+    .brand-name { font-family: var(--serif); font-size: 14px; font-weight: 700; }
+    .brand-sub { margin-top: 3px; color: var(--muted); font-size: 10px; letter-spacing: .035em; }
+    .nav { display: flex; align-items: center; gap: clamp(13px, 2vw, 27px); }
+    .nav a { color: #46413a; font-size: 12px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .nav a:hover { color: var(--maroon); }
+    .header-action { min-height: 42px; padding-inline: 15px; font-size: 12px; white-space: nowrap; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: transparent; color: var(--maroon); font-size: 22px; }
+
+    .hero { position: relative; overflow: hidden; background: var(--paper); }
+    .hero::before { position: absolute; top: 0; right: 0; width: 41%; height: 100%; background: var(--maroon); content: ""; }
+    .hero-inner { position: relative; display: grid; min-height: 590px; grid-template-columns: 1.04fr .96fr; align-items: center; gap: 48px; padding-block: 76px; }
+    .hero-copy { position: relative; z-index: 1; padding-block: 12px; }
+    .hero-location { display: flex; align-items: center; gap: 10px; margin-bottom: 23px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .hero-location::before { width: 28px; height: 1px; background: var(--gold); content: ""; }
+    .hero h1 { max-width: 620px; margin: 0; font-family: var(--serif); font-size: clamp(46px, 6vw, 72px); font-weight: 500; letter-spacing: 0; line-height: .99; }
+    .hero h1 em { color: var(--maroon); font-weight: 500; }
+    .hero-copy > p { max-width: 545px; margin: 25px 0 30px; color: #625d55; font-size: 17px; line-height: 1.7; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; }
+    .hero-art { position: relative; z-index: 1; display: grid; min-height: 400px; place-items: center; }
+    .specimen { position: relative; width: min(100%, 425px); min-height: 374px; border: 1px solid rgba(225,200,137,.58); background: var(--maroon-deep); color: white; }
+    .specimen::before, .specimen::after { position: absolute; width: 27px; height: 27px; border-color: var(--gold-light); content: ""; }
+    .specimen::before { top: 14px; left: 14px; border-top: 1px solid; border-left: 1px solid; }
+    .specimen::after { right: 14px; bottom: 14px; border-right: 1px solid; border-bottom: 1px solid; }
+    .specimen-inner { display: flex; min-height: 374px; flex-direction: column; align-items: center; justify-content: center; padding: 36px; text-align: center; }
+    .specimen-kicker { margin: 0 0 20px; color: var(--gold-light); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    .botanical { width: 176px; height: 188px; margin-bottom: 15px; }
+    .specimen-title { margin: 0; font-family: var(--serif); font-size: 26px; font-weight: 500; }
+    .specimen-caption { margin: 8px 0 0; color: rgba(255,255,255,.7); font-size: 11px; letter-spacing: .04em; }
+    .specimen-index { position: absolute; right: 29px; bottom: 26px; color: var(--gold-light); font-family: var(--serif); font-size: 12px; }
+    .hero-note { position: absolute; z-index: 2; bottom: 17px; left: 0; color: #81796e; font-size: 10px; }
+
+    .trust-strip { border-bottom: 1px solid var(--line); background: var(--white); }
+    .trust-inner { display: grid; min-height: 88px; grid-template-columns: repeat(3, 1fr); align-items: center; }
+    .trust-item { display: flex; min-height: 44px; align-items: center; gap: 13px; padding-left: 24px; border-left: 1px solid var(--line); }
+    .trust-item:first-child { padding-left: 0; border-left: 0; }
+    .trust-number { color: var(--maroon); font-family: var(--serif); font-size: 23px; }
+    .trust-label { color: var(--muted); font-size: 11px; line-height: 1.35; }
+
+    section { padding-block: 92px; }
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 82px; align-items: start; }
+    .about-aside { padding: 29px 30px; border-left: 3px solid var(--gold); background: var(--paper); }
+    .about-aside p { margin: 0; color: #514c45; font-family: var(--serif); font-size: 20px; line-height: 1.55; }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
+    .pillar { padding-top: 18px; border-top: 1px solid var(--line); }
+    .pillar-number { color: var(--gold); font-family: var(--serif); font-size: 14px; }
+    .pillar h3 { margin: 10px 0 7px; color: var(--maroon); font-family: var(--serif); font-size: 20px; font-weight: 500; }
+    .pillar p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .focus { background: #f1eee7; }
+    .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #d8d1c5; border-left: 1px solid #d8d1c5; }
+    .focus-item { min-height: 218px; padding: 27px 26px; border-right: 1px solid #d8d1c5; border-bottom: 1px solid #d8d1c5; }
+    .focus-index { color: var(--gold); font-family: var(--serif); font-size: 14px; }
+    .focus-item h3 { margin: 21px 0 10px; font-family: var(--serif); font-size: 21px; font-weight: 500; line-height: 1.2; }
+    .focus-item p { max-width: 320px; margin: 0; color: var(--muted); font-size: 13px; }
+
+    .research { background: var(--white); }
+    .research-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .research-column { padding-top: 20px; border-top: 2px solid var(--maroon); }
+    .research-column h3 { margin: 0 0 21px; font-family: var(--serif); font-size: 26px; font-weight: 500; }
+    .research-list { margin: 0; padding: 0; list-style: none; }
+    .research-list li { position: relative; padding: 0 0 20px 23px; border-bottom: 1px solid var(--line); margin-bottom: 19px; }
+    .research-list li::before { position: absolute; top: 9px; left: 0; width: 7px; height: 7px; background: var(--gold); content: ""; transform: rotate(45deg); }
+    .research-list strong { display: block; margin-bottom: 4px; font-family: var(--serif); font-size: 18px; font-weight: 600; }
+    .research-list span { display: block; color: var(--muted); font-size: 13px; }
+    .research-list li:last-child { margin-bottom: 0; }
+    .research-list a { color: var(--maroon); font-size: 13px; font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .research-list a:hover { color: var(--maroon-deep); }
+    .project-meta { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; margin: 13px 0; font-size: 12px; }
+    .project-meta dt { color: var(--muted); }
+    .project-meta dd { margin: 0; font-weight: 600; }
+
+    .collab { padding-block: 77px; background: var(--maroon); color: white; }
+    .collab .eyebrow { color: var(--gold-light); }
+    .collab .section-title { max-width: 770px; }
+    .collab .section-intro { color: rgba(255,255,255,.75); }
+    .partner-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+    .partner { display: flex; min-height: 94px; align-items: center; padding: 20px 22px; border: 1px solid rgba(255,255,255,.28); }
+    .partner-name { font-family: var(--serif); font-size: 19px; }
+
+    .conferences { background: var(--paper); }
+    .conference-activities { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 30px; margin: 0; padding: 0; list-style: none; }
+    .conference-activities li { position: relative; padding: 15px 0 15px 23px; border-bottom: 1px solid var(--line); color: #4f4a43; font-size: 14px; }
+    .conference-activities li::before { position: absolute; margin-left: -23px; color: var(--gold); content: "+"; font-weight: 700; }
+    .aura-card { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 30px; margin-top: 48px; padding: 30px; border: 1px solid var(--line); background: var(--white); }
+    .aura-details { align-self: start; }
+    .aura-details .eyebrow { margin-bottom: 9px; }
+    .aura-details h3 { margin: 0; color: var(--maroon); font-family: var(--serif); font-size: clamp(29px, 3vw, 40px); font-weight: 500; line-height: 1.08; }
+    .aura-full-name { margin: 9px 0 18px; color: var(--muted); font-size: 13px; }
+    .aura-description { margin: 0; color: #514c45; font-family: var(--serif); font-size: 18px; line-height: 1.55; }
+    .aura-contact { display: grid; gap: 8px; margin: 22px 0; font-size: 13px; }
+    .aura-contact a { color: var(--maroon); font-weight: 600; text-underline-offset: 3px; }
+    .aura-register { margin-top: 0; }
+    .aura-embed-note { margin: 17px 0 9px; color: var(--muted); font-size: 12px; }
+    .aura-form-frame { display: block; width: 100%; height: 780px; border: 1px solid var(--line); background: var(--paper); }
+
+    .impact { background: var(--paper); }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .impact-item { padding: 31px 28px 33px; border-left: 1px solid var(--line); }
+    .impact-item:first-child { padding-left: 0; border-left: 0; }
+    .impact-number { display: block; color: var(--maroon); font-family: var(--serif); font-size: 56px; line-height: 1; }
+    .impact-label { display: block; margin-top: 9px; font-family: var(--serif); font-size: 20px; }
+    .impact-date { display: block; margin-top: 6px; color: var(--sage); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+    .impact-item p { max-width: 290px; margin: 13px 0 0; color: var(--muted); font-size: 13px; }
+    .impact-note { margin: 17px 0 0; color: var(--muted); font-size: 11px; }
+
+    .leadership { background: var(--white); }
+    .leaders { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .leader { display: grid; grid-template-columns: 132px 1fr; gap: 23px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .leader-photo { display: block; width: 132px; height: 164px; object-fit: cover; object-position: center 28%; }
+    .leader h3 { margin: 0; font-family: var(--serif); font-size: 23px; font-weight: 500; line-height: 1.2; }
+    .leader-role { margin: 6px 0 13px; color: var(--maroon); font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+    .leader ul { margin: 0; padding-left: 17px; color: var(--muted); font-size: 13px; }
+    .leader li + li { margin-top: 7px; }
+
+    .partnership { background: #f1eee7; }
+    .partnership-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 68px; align-items: start; }
+    .engagement-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; margin: 29px 0 0; padding: 0; list-style: none; }
+    .engagement-list li { padding: 12px 0; border-bottom: 1px solid #d8d1c5; color: #4f4a43; font-size: 13px; }
+    .engagement-list li::before { margin-right: 9px; color: var(--gold); content: "+"; font-weight: 700; }
+    .compliance { padding: 27px; border: 1px solid #d8d1c5; background: var(--white); }
+    .compliance h3 { margin: 0 0 18px; font-family: var(--serif); font-size: 23px; font-weight: 500; }
+    .compliance p { margin: 0 0 15px; color: var(--muted); font-size: 13px; }
+    .compliance dl { display: grid; grid-template-columns: 1fr auto; gap: 10px 15px; margin: 0; padding-top: 15px; border-top: 1px solid var(--line); font-size: 12px; }
+    .compliance dt { color: var(--muted); }
+    .compliance dd { margin: 0; color: var(--ink); font-weight: 700; text-align: right; }
+    .compliance-documents { margin-top: 20px; padding-top: 17px; border-top: 1px solid var(--line); }
+    .compliance-documents h4 { margin: 0 0 10px; font-family: var(--serif); font-size: 17px; font-weight: 500; }
+    .compliance-documents ul { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .compliance-documents a { color: var(--maroon); font-size: 12px; font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .compliance-documents a:hover { color: var(--maroon-deep); }
+    .partnership .button { margin-top: 22px; }
+
+    .contact { background: var(--maroon-deep); color: white; }
+    .contact .eyebrow { color: var(--gold-light); }
+    .contact .section-intro { color: rgba(255,255,255,.72); }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 75px; align-items: start; }
+    .contact-details { margin-top: 36px; }
+    .contact-details h3 { margin: 0 0 9px; color: var(--gold-light); font-family: var(--serif); font-size: 17px; font-weight: 500; }
+    .contact-details p, .contact-details a { margin: 0; color: rgba(255,255,255,.83); font-size: 14px; line-height: 1.7; }
+    .contact-details a:hover { color: white; }
+    .contact-detail + .contact-detail { margin-top: 25px; }
+    .inquiry-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 28px; border: 1px solid rgba(255,255,255,.28); }
+    .field { display: grid; gap: 6px; }
+    .field--wide { grid-column: 1 / -1; }
+    .field label { color: rgba(255,255,255,.86); font-size: 11px; font-weight: 700; }
+    .field input, .field textarea { width: 100%; border: 1px solid rgba(255,255,255,.35); border-radius: 0; background: rgba(255,255,255,.06); color: white; outline: none; }
+    .field input { height: 44px; padding: 0 11px; }
+    .field textarea { min-height: 116px; padding: 10px 11px; resize: vertical; }
+    .field input:focus, .field textarea:focus { border-color: var(--gold-light); }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,.48); }
+    .form-note { grid-column: 1 / -1; margin: -3px 0 0; color: rgba(255,255,255,.6); font-size: 10px; }
+    .inquiry-form .button { justify-self: start; }
+
+    .site-footer { padding-block: 22px; background: #351313; color: rgba(255,255,255,.66); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: 10px; }
+    .footer-name { color: white; font-family: var(--serif); font-size: 12px; }
+
+    @media (max-width: 1050px) {
+      .brand { min-width: auto; }
+      .nav { gap: 14px; }
+      .nav a { font-size: 11px; }
+      .header-action { display: none; }
+      .partner-list { grid-template-columns: repeat(2, 1fr); }
+      .hero-inner { gap: 25px; }
+      .about-grid { gap: 45px; }
+      .contact-grid { gap: 42px; }
+    }
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 70px; }
+      .wrap { width: min(100% - 36px, var(--content)); }
+      .header-inner { min-height: 68px; }
+      .brand-mark { width: 36px; height: 36px; }
+      .brand-name { font-size: 12px; }
+      .brand-sub { font-size: 9px; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav { position: absolute; top: 67px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px 18px 15px; border-bottom: 1px solid var(--line); background: var(--white); }
+      .nav.is-open { display: grid; }
+      .nav a { padding: 11px 4px; border-bottom: 1px solid #eee9df; font-size: 13px; }
+      .nav a:last-child { border-bottom: 0; }
+      .hero::before { top: auto; bottom: 0; width: 100%; height: 41%; }
+      .hero-inner { min-height: auto; grid-template-columns: 1fr; gap: 31px; padding-block: 53px 56px; }
+      .hero h1 { max-width: 600px; font-size: clamp(45px, 12vw, 64px); }
+      .hero-copy > p { font-size: 15px; }
+      .hero-art { min-height: 310px; }
+      .specimen, .specimen-inner { min-height: 300px; }
+      .botanical { width: 127px; height: 137px; margin-bottom: 8px; }
+      .specimen-kicker { margin-bottom: 10px; }
+      .hero-note { bottom: 13px; color: rgba(255,255,255,.7); }
+      .trust-inner { min-height: 78px; }
+      .trust-item { gap: 8px; padding-left: 11px; }
+      .trust-number { font-size: 18px; }
+      .trust-label { font-size: 9px; }
+      section { padding-block: 68px; }
+      .section-head { margin-bottom: 31px; }
+      .section-intro { font-size: 15px; }
+      .about-grid, .research-columns, .partnership-grid, .contact-grid { grid-template-columns: 1fr; gap: 31px; }
+      .pillars { grid-template-columns: 1fr; gap: 16px; margin-top: 31px; }
+      .pillar { display: grid; grid-template-columns: 30px 1fr; column-gap: 9px; }
+      .pillar-number { grid-row: span 2; padding-top: 4px; }
+      .pillar h3 { margin: 0 0 4px; }
+      .pillar p { grid-column: 2; }
+      .focus-grid { grid-template-columns: repeat(2, 1fr); }
+      .focus-item { min-height: 200px; padding: 19px 16px; }
+      .focus-item h3 { margin-top: 15px; font-size: 18px; }
+      .focus-item p { font-size: 12px; }
+      .research-columns { gap: 34px; }
+      .collab { padding-block: 63px; }
+      .partner-list { grid-template-columns: 1fr; gap: 10px; margin-top: 29px; }
+      .partner { min-height: 78px; padding: 16px; }
+      .partner-name { font-size: 17px; }
+      .conference-activities { grid-template-columns: 1fr; }
+      .aura-card { grid-template-columns: 1fr; gap: 24px; padding: 21px; }
+      .aura-form-frame { height: 760px; }
+      .impact-grid { grid-template-columns: 1fr; }
+      .impact-item, .impact-item:first-child { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+      .impact-item:last-child { border-bottom: 0; }
+      .impact-number { font-size: 48px; }
+      .impact-label { display: inline-block; margin-left: 9px; }
+      .leaders { grid-template-columns: 1fr; gap: 23px; }
+      .leader { grid-template-columns: 80px 1fr; gap: 15px; }
+      .leader-photo { width: 80px; height: 100px; }
+      .leader h3 { font-size: 20px; }
+      .engagement-list { grid-template-columns: 1fr; margin-top: 19px; }
+      .compliance { padding: 21px; }
+      .inquiry-form { padding: 20px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 5px; }
+    }
+    @media (max-width: 420px) {
+      .wrap { width: calc(100% - 28px); }
+      .hero-actions { align-items: stretch; flex-direction: column; }
+      .hero-actions .button { width: 100%; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .focus-item { min-height: auto; padding-block: 19px; }
+      .focus-item h3 { margin-top: 10px; }
+      .inquiry-form { grid-template-columns: 1fr; }
+      .field--wide, .form-note { grid-column: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="SSRF home">
+        <span class="brand-mark" aria-hidden="true">ஸ்ரீ</span>
+        <span class="brand-copy">
+          <span class="brand-name">Sivaraman Siddha Research Foundation</span>
+          <span class="brand-sub">Chennai, Tamil Nadu · Public Charitable Trust · Est. 2022</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
+      <nav class="nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#focus">Focus Areas</a>
+        <a href="#research">Research</a>
+        <a href="#conferences">Conferences</a>
+        <a href="#collaborations">Collaborations</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="button header-action" href="#partnership">Partner With Us</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <div class="hero-location">Chennai · Tamil Nadu · Est. 2022</div>
+          <h1>Advancing Siddha Medicine Through <em>Research</em> and Public Health.</h1>
+          <p>Bridging traditional knowledge and modern science through evidence generation, integrative healthcare, and community-based health initiatives.</p>
+          <div class="hero-actions">
+            <a class="button" href="#research">Explore Our Research</a>
+            <a class="button button--outline" href="#partnership">Collaborate With Us</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Botanical research specimen illustration">
+          <div class="specimen">
+            <div class="specimen-inner">
+              <p class="specimen-kicker">Knowledge · Evidence · Wellbeing</p>
+              <svg class="botanical" viewBox="0 0 180 190" role="img" aria-labelledby="botanical-title">
+                <title id="botanical-title">A botanical sprig alongside a scientific vessel</title>
+                <g fill="none" stroke="#e1c889" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M70 166C79 139 91 114 103 88c8-17 13-37 11-58"/>
+                  <path d="M82 139c-17-4-29-15-35-30 17-1 31 7 39 20"/>
+                  <path d="M91 119c17-7 27-20 30-36-16 3-28 13-34 27"/>
+                  <path d="M101 93c-15-8-22-21-22-36 15 5 25 15 29 30"/>
+                  <path d="M109 68c13-10 19-23 17-38-13 7-21 18-23 32"/>
+                  <path d="M73 158c-9 1-16 6-20 14 9 1 17-2 22-9"/>
+                  <path d="M128 161h33M132 157l3-65h21l3 65M135 105h21M137 119h17M136 137h19M133 157h26"/>
+                  <path d="M140 92V75h11v17M143 75V63h5v12"/>
+                  <path d="M136 137c5-4 12-4 19 0" stroke="#fffefa" opacity=".8"/>
+                  <path d="M65 174h42" stroke="#bd9a57"/>
+                  <circle cx="114" cy="26" r="2" fill="#e1c889"/>
+                  <circle cx="48" cy="109" r="2" fill="#e1c889"/>
+                </g>
+              </svg>
+              <h2 class="specimen-title">Tradition, examined.</h2>
+              <p class="specimen-caption">A research-led approach to Siddha health</p>
+            </div>
+            <span class="specimen-index">SSRF · 01</span>
+          </div>
+        </div>
+        <span class="hero-note">Sivaraman Siddha Research Foundation · Public Charitable Trust</span>
+      </div>
+    </section>
+
+    <div class="trust-strip" aria-label="Foundation overview">
+      <div class="wrap trust-inner">
+        <div class="trust-item"><span class="trust-number">2022</span><span class="trust-label">Established as a<br>public charitable trust</span></div>
+        <div class="trust-item"><span class="trust-number">3</span><span class="trust-label">Institutional pillars<br>guiding our work</span></div>
+        <div class="trust-item"><span class="trust-number">Chennai</span><span class="trust-label">Based in Tamil Nadu,<br>working across communities</span></div>
+      </div>
+    </div>
+
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div>
+            <p class="eyebrow">About SSRF</p>
+            <h2 class="section-title">Traditional knowledge, advanced through evidence.</h2>
+          </div>
+          <div class="about-aside">
+            <p>Sivaraman Siddha Research Foundation (SSRF) is a Chennai-based public charitable trust established in 2022. SSRF works to advance Siddha medicine through scientific research, integrative healthcare, preventive health initiatives, and community outreach, with a focus on improving health outcomes among underserved populations.</p>
+          </div>
+        </div>
+        <div class="pillars">
+          <article class="pillar"><span class="pillar-number">01</span><h3>Scientific Research</h3><p>Rigorous evaluation, protocol formulation, and evidence generation for classical Siddha formulations.</p></article>
+          <article class="pillar"><span class="pillar-number">02</span><h3>Integrative Healthcare</h3><p>Fostering medical pluralism by bridging traditional Siddha wisdom with contemporary biomedical healthcare.</p></article>
+          <article class="pillar"><span class="pillar-number">03</span><h3>Community Health</h3><p>Expanding preventive health initiatives, screenings, and outreach to vulnerable and underserved populations.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="focus" id="focus">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Our Focus</p><h2 class="section-title">Research and care shaped around real health needs.</h2></div>
+        <div class="focus-grid">
+          <article class="focus-item"><span class="focus-index">01 / Care</span><h3>Cancer Care &amp; Support</h3><p>Lifestyle modification, dietary protocols, and supportive care research in integrative oncology.</p></article>
+          <article class="focus-item"><span class="focus-index">02 / Prevention</span><h3>Diabetes &amp; NCD Prevention</h3><p>Targeted screening, early diagnosis, and dietary interventions for metabolic and lifestyle disorders.</p></article>
+          <article class="focus-item"><span class="focus-index">03 / Wellbeing</span><h3>Women’s &amp; Child Health</h3><p>Interventions for anaemia, PCOD/PCOS, bone health, and targeted nutritional awareness.</p></article>
+          <article class="focus-item"><span class="focus-index">04 / Evidence</span><h3>Clinical &amp; Translational Research</h3><p>Preclinical evaluation, reverse pharmacology, and scientific validation of classical formulations.</p></article>
+          <article class="focus-item"><span class="focus-index">05 / Heritage</span><h3>Traditional Foods &amp; Botanical Conservation</h3><p>Research on millet-based nutrition, functional foods, and preservation of indigenous medicinal flora.</p></article>
+          <article class="focus-item"><span class="focus-index">06 / Daily Health</span><h3>Yoga &amp; Preventive Health</h3><p>Institutional wellness programs promoting stress management, mindfulness, and healthy lifestyles.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="research" id="research">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Research &amp; Innovation</p><h2 class="section-title">Building a Thoughtful Evidence Base</h2></div>
+        <div class="research-columns">
+          <article class="research-column">
+            <h3>Published Research</h3>
+            <ul class="research-list">
+              <li>
+                <strong>Samsthithaa, Sendhilkumar M, Sindhu R, Rajalakshmi K, &amp; Sivaraman G. (2026). Morbidity profile of patients seeking care in private Siddha facilities in Tamil Nadu: a cross-sectional study.</strong>
+                <span><em>International Journal of Community Medicine and Public Health, 13</em>(9), 5123–5129.</span>
+                <a href="https://doi.org/10.18203/2394-6040.ijcmph20263195" target="_blank" rel="noopener noreferrer">DOI: https://doi.org/10.18203/2394-6040.ijcmph20263195</a>
+              </li>
+            </ul>
+          </article>
+          <article class="research-column">
+            <h3>Research in Progress</h3>
+            <ul class="research-list">
+              <li>
+                <strong>Evaluation of Clinical Benefit and Safety of Siddha Medicine in Triple-Negative Stage IV Breast Cancer Patients Following Two Lines of Systemic Therapy</strong>
+                <dl class="project-meta">
+                  <dt>Study type</dt><dd>Prospective interventional study</dd>
+                  <dt>Study ID</dt><dd>CTRI/2026/08/115730</dd>
+                  <dt>Collaborator</dt><dd>WIA Adyar Cancer Centre, Chennai</dd>
+                </dl>
+                <span>Focus: Evaluation of the clinical benefit and safety of Siddha medicine used as supportive care following two lines of standard systemic cancer treatment.</span>
+              </li>
+              <li>
+                <strong>Scoping Reviews Related to Siddha Medicine</strong>
+                <span>Focus on mapping the available scientific evidence, identifying research gaps, and informing future research.</span>
+              </li>
+            </ul>
+          </article>
+          <article class="research-column">
+            <h3>Upcoming Research</h3>
+            <ul class="research-list">
+              <li>
+                <strong>Tamil Cuisine-Based Recipes Using Low- and Medium-Glycemic Index Ingredients for Adults with Type 2 Diabetes Mellitus</strong>
+                <span>Upcoming research project focused on developing and evaluating culturally appropriate Tamil cuisine-based recipes using low- and medium-glycemic-index ingredients.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="conferences" id="conferences">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Conferences</p><h2 class="section-title">Conferences and Scientific Engagement</h2></div>
+        <ul class="conference-activities">
+          <li>Participation in national and international scientific conferences.</li>
+          <li>Presentation of research findings to scientific audiences.</li>
+          <li>Academic and professional knowledge exchange.</li>
+          <li>Engagement with researchers, clinicians, students, and institutions to encourage collaboration.</li>
+        </ul>
+        <article class="aura-card" aria-labelledby="aura-title">
+          <div class="aura-details">
+            <p class="eyebrow">Conference Registration</p>
+            <h3 id="aura-title">AURA 2027</h3>
+            <p class="aura-full-name">Arogya Unified Research &amp; Advancement in Siddha Medicine</p>
+            <p class="aura-description">AURA 2027 brings together Siddha practitioners, researchers, students, and professionals to encourage scientific research, clinical knowledge exchange, and innovation in Siddha medicine.</p>
+            <div class="aura-contact" aria-label="AURA 2027 registration contacts">
+              <span><strong>Email:</strong> <a href="mailto:ssrf@arogyahealthcare.com">ssrf@arogyahealthcare.com</a></span>
+              <span><strong>Phone:</strong> <a href="tel:9488652395">9488652395</a></span>
+            </div>
+            <a class="button aura-register" href="https://forms.gle/HTY259GkGmiqW39Q7" target="_blank" rel="noopener noreferrer">Register for AURA 2027</a>
+          </div>
+          <div>
+            <p class="aura-embed-note">Complete the registration form here, or open it separately if the embedded form does not load. Google Forms currently redirects to sign-in; if access is restricted, the form owner may need to adjust the form’s access settings.</p>
+            <iframe class="aura-form-frame" src="https://docs.google.com/forms/d/e/1FAIpQLSeptyRJJzdzjL-fuyvUlnUZAvchyhNYykI_CCBV720S9Whwvg/viewform?embedded=true" title="AURA 2027 registration form" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="collab" id="collaborations">
+      <div class="wrap">
+        <p class="eyebrow">Institutional Collaborations</p>
+        <h2 class="section-title">Building Partnerships for Research and Innovation</h2>
+        <p class="section-intro">SSRF is strengthening interdisciplinary partnerships through Memoranda of Understanding (MoUs) with academic and research institutions to advance scientific research, technology-enabled validation, and innovation in traditional medicine.</p>
+        <div class="partner-list">
+          <div class="partner"><span class="partner-name">IIT (BHU), Varanasi</span></div>
+          <div class="partner"><span class="partner-name">Vellore Institute of Technology (VIT), Vellore</span></div>
+          <div class="partner"><span class="partner-name">National Institute of Siddha, Chennai</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact" id="impact">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Community Impact</p><h2 class="section-title">Health initiatives, documented in the field.</h2></div>
+        <div class="impact-grid">
+          <article class="impact-item"><span class="impact-number">351</span><span class="impact-label">Women screened</span><span class="impact-date">MARCH 2026 · INTERNATIONAL WOMEN’S DAY</span><p>Health initiative covering anaemia, bone density, and biochemical parameters.</p></article>
+          <article class="impact-item"><span class="impact-number">150</span><span class="impact-label">Participants engaged</span><span class="impact-date">NOVEMBER 2025 · WORLD DIABETES DAY</span><p>Yoga and lifestyle awareness seminar held in Mylapore.</p></article>
+          <article class="impact-item"><span class="impact-number">250</span><span class="impact-label">Students reached</span><span class="impact-date">JUNE 2025 · INTERNATIONAL DAY OF YOGA</span><p>Youth wellness and stress management session in Ambattur.</p></article>
+        </div>
+        <p class="impact-note">Figures represent documented field activities and program records, not the foundation’s cumulative annual reach.</p>
+      </div>
+    </section>
+
+    <section class="leadership" id="leadership">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Leadership &amp; Governance</p><h2 class="section-title">Guided by clinical and research experience.</h2></div>
+        <div class="leaders">
+          <article class="leader">
+            <img class="leader-photo" src="assets/images/dr-g-sivaraman.png" alt="Dr. G. Sivaraman, Founder and Managing Trustee">
+            <div><h3>Dr. G. Sivaraman</h3><p class="leader-role">B.S.M.S., Ph.D. · Founder and Managing Trustee</p><ul><li>Siddha physician, researcher, and public health advocate with over 30 years of clinical and academic experience.</li><li>Member of the Tamil Nadu State Planning Commission and former advisor to national AYUSH working groups.</li><li>Global speaker on millet-based nutrition, functional foods, reverse pharmacology, and integrative oncology.</li></ul></div>
+          </article>
+          <article class="leader">
+            <img class="leader-photo" src="assets/images/dr-k-rajalakshmi.png" alt="Dr. K. Rajalakshmi, Trustee">
+            <div><h3>Dr. K. Rajalakshmi</h3><p class="leader-role">M.D.(S), Ph.D. · Trustee</p><ul><li>Over 30 years of clinical and research experience; former Associate Professor and Deputy Controller of Examinations at The Tamil Nadu Dr. M.G.R. Medical University.</li><li>WHO drafting expert for International Standard Terminologies in Siddha Medicine.</li><li>Principal Investigator for UGC and TNSCST-funded research projects on formulation validation.</li></ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="partnership" id="partnership">
+      <div class="wrap partnership-grid">
+        <div>
+          <p class="eyebrow">Partnerships &amp; CSR</p>
+          <h2 class="section-title">Put shared purpose to work.</h2>
+          <p class="section-intro">SSRF welcomes academic bodies, corporate CSR teams, healthcare organizations, and philanthropic partners.</p>
+          <ul class="engagement-list">
+            <li>Community NCD &amp; anaemia screening camps</li>
+            <li>School and workplace wellness initiatives</li>
+            <li>Clinical evidence generation &amp; nutraceutical research</li>
+            <li>Traditional food &amp; millet nutrition awareness</li>
+          </ul>
+        </div>
+        <div class="compliance">
+          <h3>Compliance profile</h3>
+          <p>Registered under Section 12A and approved under Section 80G of the Income Tax Act, 1961.</p>
+          <dl><dt>NGO Darpan ID</dt><dd>TN/2025/0894477</dd><dt>CSR Registration SRN</dt><dd>AC3253206</dd></dl>
+          <div class="compliance-documents">
+            <h4>Registration documents</h4>
+            <ul>
+              <li><a href="assets/certificates/SSRF_DARPAN_ABFTS2784K_Registration_Certificate.pdf">NGO Darpan Registration Certificate (PDF)</a></li>
+              <li><a href="assets/certificates/SSRF_Form_10A_Section_80G.pdf">Form 10A — Section 80G filing (PDF)</a></li>
+              <li><a href="assets/certificates/SSRF_Form_10AB_Section_12A.pdf">Form 10AB — Section 12A filing (PDF)</a></li>
+              <li><a href="assets/certificates/SSRF_CSR-1_Registration_Certificate.pdf">CSR-1 Registration Certificate (PDF)</a></li>
+            </ul>
+          </div>
+          <a class="button" href="#contact">Discuss a Partnership</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="eyebrow">Contact SSRF</p>
+          <h2 class="section-title">Let’s start a conversation.</h2>
+          <p class="section-intro">Connect with us about research, community health, and institutional partnerships.</p>
+          <div class="contact-details">
+            <div class="contact-detail"><h3>Institutional Address</h3><p><strong>Sivaraman Siddha Research Foundation (SSRF)</strong><br>No. C-18, Divyam Apartments, 474, First Main Road,<br>Mogappair Eri Scheme, Chennai, Tamil Nadu 600037, India</p></div>
+            <div class="contact-detail"><h3>Email</h3><a href="mailto:arogyassrf@gmail.com">arogyassrf@gmail.com</a></div>
+          </div>
+        </div>
+        <form class="inquiry-form" id="inquiry-form">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" placeholder="Your name" required></div>
+          <div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.org" required></div>
+          <div class="field field--wide"><label for="organization">Organization</label><input id="organization" name="organization" autocomplete="organization" placeholder="Organization name"></div>
+          <div class="field field--wide"><label for="message">Message</label><textarea id="message" name="message" placeholder="How would you like to work together?" required></textarea></div>
+          <p class="form-note">Submitting opens your email application with your inquiry addressed to SSRF.</p>
+          <button class="button button--light" type="submit">Prepare Inquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner"><span class="footer-name">Sivaraman Siddha Research Foundation</span><span>© 2026 Sivaraman Siddha Research Foundation. Registered Public Charitable Trust.</span></div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('#primary-nav');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
+      navigation.classList.toggle('is-open', !isOpen);
+    });
+
+    navigation.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        navigation.classList.remove('is-open');
+      }
+    });
+
+    document.querySelector('#inquiry-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const subject = encodeURIComponent(`SSRF inquiry from ${formData.get('name')}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.get('name')}\nEmail: ${formData.get('email')}\nOrganization: ${formData.get('organization') || 'Not provided'}\n\n${formData.get('message')}`
+      );
+      window.location.href = `mailto:arogyassrf@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
