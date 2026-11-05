@@ -25,6 +25,6 @@ if (inquiryForm) {
     const body = encodeURIComponent(
       `Name: ${formData.get('name')}\nEmail: ${formData.get('email')}\nOrganization: ${formData.get('organization') || 'Not provided'}\n\n${formData.get('message')}`
     );
-    window.location.href = `mailto:arogyassrf@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:ssrf@arogyahealthcare.com?subject=${subject}&body=${body}`;
   });
 }
