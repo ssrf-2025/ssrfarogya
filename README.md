@@ -14,7 +14,7 @@ The inquiry form validates the required fields and opens the visitor's default e
 - `about.html` — About SSRF
 - `focus-areas.html` — Focus areas
 - `research.html` — Research and innovation
-- `conferences.html` — Conferences and AURA 2027 registration
+- `conferences.html` — Conferences and AURA 2027 registration form
 - `collaborations.html` — Institutional collaborations
 - `impact.html` — Community impact
 - `leadership.html` — Leadership and governance
@@ -24,3 +24,5 @@ The inquiry form validates the required fields and opens the visitor's default e
 All pages share `styles.css` and `site.js`. Keep these files, the `assets` folder, and the HTML pages together when moving or publishing the site.
 
 AURA 2027 registration is embedded from Google Forms and also linked externally as a fallback. Google Forms may require sign-in depending on the form's access settings.
+
+The homepage also features a direct AURA 2027 registration link and a link to the full conference details and embedded form.
