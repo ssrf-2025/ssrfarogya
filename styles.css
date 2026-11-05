@@ -70,11 +70,11 @@
     .hero-note { position: absolute; z-index: 2; bottom: 17px; left: 0; color: #81796e; font-size: 12px; }
 
     .trust-strip { border-bottom: 1px solid var(--line); background: var(--white); }
-    .trust-inner { display: grid; min-height: 88px; grid-template-columns: repeat(3, 1fr); align-items: center; }
-    .trust-item { display: flex; min-height: 44px; align-items: center; gap: 13px; padding-left: 24px; border-left: 1px solid var(--line); }
+    .trust-inner { display: grid; min-height: 96px; grid-template-columns: repeat(3, 1fr); align-items: center; }
+    .trust-item { display: flex; min-height: 50px; align-items: center; gap: 13px; padding-left: 24px; border-left: 1px solid var(--line); }
     .trust-item:first-child { padding-left: 0; border-left: 0; }
-    .trust-number { color: var(--maroon); font-family: var(--serif); font-size: 23px; }
-    .trust-label { color: var(--muted); font-size: 12px; line-height: 1.35; }
+    .trust-number { color: var(--maroon); font-family: var(--serif); font-size: 28px; line-height: 1.1; }
+    .trust-label { color: var(--muted); font-size: 14px; line-height: 1.4; }
 
     .aura-promo { padding-block: 36px; background: var(--maroon-deep); color: white; }
     .aura-promo-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 30px; }
@@ -260,10 +260,10 @@
       .botanical { width: 127px; height: 137px; margin-bottom: 8px; }
       .specimen-kicker { margin-bottom: 10px; }
       .hero-note { bottom: 13px; color: rgba(255,255,255,.7); }
-      .trust-inner { min-height: 78px; }
-      .trust-item { gap: 8px; padding-left: 11px; }
-      .trust-number { font-size: 18px; }
-      .trust-label { font-size: 12px; }
+      .trust-inner { min-height: 104px; }
+      .trust-item, .trust-item:first-child { min-width: 0; min-height: 68px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 4px; padding: 8px; }
+      .trust-number { font-size: 24px; }
+      .trust-label { font-size: 13px; line-height: 1.35; }
       section { padding-block: 68px; }
       .section-head { margin-bottom: 31px; }
       .section-intro { font-size: 15px; }
