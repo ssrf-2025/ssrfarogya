@@ -202,8 +202,14 @@
     .inquiry-form .button { justify-self: start; }
 
     .site-footer { padding-block: 22px; background: #351313; color: rgba(255,255,255,.66); }
-    .footer-inner { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 14px 28px; font-size: 10px; }
-    .footer-name { color: white; font-family: var(--serif); font-size: 12px; } .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 16px; } .footer-nav a { color: rgba(255,255,255,.76); text-decoration: none; } .footer-nav a:hover, .footer-nav a:focus-visible { color: white; text-decoration: underline; text-underline-offset: 3px; } .footer-copyright { grid-column: 1 / -1; }
+    .footer-inner { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start; gap: 20px 36px; font-size: 10px; }
+    .footer-name { color: white; font-family: var(--serif); font-size: 12px; }
+    .footer-pages { padding-left: 28px; border-left: 1px solid rgba(255,255,255,.2); }
+    .footer-heading { margin: 0 0 10px; color: white; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .footer-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; }
+    .footer-nav a { color: rgba(255,255,255,.76); text-decoration: none; }
+    .footer-nav a:hover, .footer-nav a:focus-visible { color: white; text-decoration: underline; text-underline-offset: 3px; }
+    .footer-copyright { grid-column: 1 / -1; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.2); }
 
     @media (max-width: 1050px) {
       .brand { min-width: auto; }
@@ -273,7 +279,9 @@
       .engagement-list { grid-template-columns: 1fr; margin-top: 19px; }
       .compliance { padding: 21px; }
       .inquiry-form { padding: 20px; }
-      .footer-inner { grid-template-columns: 1fr; gap: 10px; } .footer-copyright { grid-column: auto; }
+      .footer-inner { grid-template-columns: 1fr; gap: 18px; }
+      .footer-pages { padding: 14px 0 0; border-top: 1px solid rgba(255,255,255,.2); border-left: 0; }
+      .footer-copyright { grid-column: auto; }
     }
     @media (max-width: 420px) {
       .wrap { width: calc(100% - 28px); }
@@ -568,7 +576,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-inner"><span class="footer-name">Sivaraman Siddha Research Foundation</span><nav class="footer-nav" aria-label="Quick links"><a href="#home">Home</a><a href="#about">About</a><a href="#focus">Focus Areas</a><a href="#research">Research</a><a href="#conferences">Conferences</a><a href="#collaborations">Collaborations</a><a href="#impact">Impact</a><a href="#leadership">Leadership</a><a href="#partnership">Partnerships</a><a href="#contact">Contact</a></nav><span class="footer-copyright">© 2026 Sivaraman Siddha Research Foundation. Registered Public Charitable Trust.</span></div>
+    <div class="wrap footer-inner"><span class="footer-name">Sivaraman Siddha Research Foundation</span><section class="footer-pages" aria-labelledby="footer-pages-title"><h2 class="footer-heading" id="footer-pages-title">Explore pages</h2><nav class="footer-nav" aria-label="Footer navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#focus">Focus Areas</a><a href="#research">Research</a><a href="#conferences">Conferences</a><a href="#collaborations">Collaborations</a><a href="#impact">Impact</a><a href="#leadership">Leadership</a><a href="#partnership">Partnerships</a><a href="#contact">Contact</a></nav></section><span class="footer-copyright">© 2026 Sivaraman Siddha Research Foundation. Registered Public Charitable Trust.</span></div>
   </footer>
 
   <script>
