@@ -6,7 +6,7 @@ A responsive, multi-page website for Sivaraman Siddha Research Foundation (SSRF)
 
 Open `index.html` in a browser and use the navigation to move between pages. No package installation, build step, or development server is required.
 
-The inquiry form validates required fields and submits them to `ssrf@arogyahealthcare.com` through FormSubmit. On first use, the recipient must activate FormSubmit using the verification email it sends.
+The inquiry form validates required fields and submits them through the foundation's FormSubmit.io endpoint.
 
 ## Pages
 
