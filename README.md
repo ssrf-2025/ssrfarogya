@@ -6,7 +6,7 @@ A responsive, multi-page website for Sivaraman Siddha Research Foundation (SSRF)
 
 Open `index.html` in a browser and use the navigation to move between pages. No package installation, build step, or development server is required.
 
-The inquiry form validates the required fields and opens the visitor's default email application with a prefilled message to `arogyassrf@gmail.com`. It does not submit data to a server.
+The inquiry form validates the required fields and opens the visitor's default email application with a prefilled message to `ssrf@arogyahealthcare.com`. It does not submit data to a server.
 
 ## Pages
 
